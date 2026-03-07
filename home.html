@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Assignment-5</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
+
 </head>
+
 <body>
-    <h1>Home Page</h1>
+    <section>
+        <div class="navbar bg-base-100 shadow-sm">
+            <div class="flex-1 flex items-center gap-2">
+                <img class="w-10" src="./assets/github-logo.png" alt="">
+                <h2 class="font-bold text-xl ">GitHub Issues Tracker</h2>
+            </div>
+            <div class="flex gap-2 items-center">
+                <input type="text" placeholder="Search" class="input input-bordered w-24 hidden md:block md:w-auto" />
+                <span class="md:hidden mr-5"><i class="fa-solid fa-magnifying-glass "></i></span>
+                <button class="btn btn-active btn-primary hidden md:inline-flex"> + New Issue</button>
+            </div>
+        </div>
+    </section>
+    <section class="w-9/12 mx-auto mt-10">
+        <div>
+            <button class="btn btn-outline btn-active btn-primary b">All</button>
+            <button class="btn btn-outline btn-active btn-primary b">Open</button>
+            <button class="btn btn-outline btn-active btn-primary b">Closed</button>
+        </div>
+    </section>
 </body>
+
 </html>
