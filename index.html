@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-5</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
+
+</head>
+
+<body class="min-h-screen max-w-md shadow-2xl mx-auto">
+    >
+    <div class="logo w-[100px] mx-auto pt-10">
+        <img src="./assets/github-logo.png" alt="">
+    </div>
+    <div class="text-center mt-4">
+        <h2 class="font-semibold text-xl">GitHub Issues Tracker</h2>
+        <p class="text-[#646464] text-sm">Sign in to manage your issues</p>
+    </div>
+    <div class="form pt-5">
+        <div class="card bg-base-100 w-full max-w-sm shrink-0 mx-auto">
+            <div class="card-body">
+                <fieldset class="fieldset">
+                    <label class="label font-medium text-gray-700">Username</label>
+                    <input type="email" class="input" placeholder="Enter Username" />
+                    <div class="text-[#4A00FF]">Default: admin</div>
+                    <label class="label font-medium text-gray-700">Password</label>
+                    <input type="password" class="input" placeholder="Enter Password" />
+                    <div class="text-[#4A00FF]">Default: admin123</div>
+                    <button class="btn btn-neutral mt-4 rounded-full">Login</button>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <script src="./scipt/login.js"></script>
+</body>
+
+</html>
