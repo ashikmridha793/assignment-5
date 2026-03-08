@@ -10,10 +10,19 @@ const closedTab = document.getElementById('closed-issues')
 
 // priority color helper
 const getPriorityColor = (priority) => {
-    if(priority === 'high') return 'badge-error';
-    if(priority === 'medium') return 'badge-warning';
-    if(priority === 'low') return 'badge-success';
+    if (priority === 'high') return 'badge-error';
+    if (priority === 'medium') return 'badge-warning';
+    if (priority === 'low') return 'badge-success';
     return 'badge-neutral';
+}
+
+// label color helper
+const getLabelColor = (label) => {
+    label = label.toLowerCase();
+    if (label === 'bug') return 'badge-error';
+    if (label === 'feature') return 'badge-success';
+    if (label === 'enhancement') return 'badge-warning';
+    return 'badge-info';
 }
 
 // modal 
@@ -61,30 +70,27 @@ const renderIssues = (issues) => {
         card.innerHTML = `
         
         <div class="flex items-center gap-2 mb-2">
-        
-            
-            <div class="flex-1">
-                <p class="text-xs md:text-sm text-gray-600">${issue.priority}</p>
+
+            <div class="flex gap-4 items-center justify-between w-full">
+               <span class="p-2 bg-green-100 rounded-full"><i class="fa-solid fa-spinner"></i></span>
+               <span class="badge ${getPriorityColor(issue.priority)}">${issue.priority}</span>
             </div>
         </div>
 
          <h3 class="text-lg font-bold mb-1">
-         
-         <span class="line-clamp-1">${issue.title}</span>
+            <span class="line-clamp-2">${issue.title}</span>
          </h3>
 
-         <p class="text-xs md:text-sm text-gray-600 mb-3 line-clamp-2">${issue.description}</p>
-         <div class="flex items-center flex-wrap justify-between gap-2">
+         <p class="text-xs md:text-sm text-gray-600 mb-3 line-clamp-3">${issue.description}</p>
 
-            <div class="flex flex-wrap gap-2">
-
-            ${issue.labels.map(label => `<span class="badge badge-info badge-xs md:badge-sm">${label}</span>`).join('')}
-
-                <span class="badge ${getPriorityColor(issue.priority)} badge-xs md:badge-sm">${issue.priority}</span>
-
-            </div>
+         <div class="flex items-start flex-col flex-wrap justify-between gap-2">
+            <div class="badge ${getLabelColor}">${issue.labels}</div>
+                
+            <div>
+            <span class="text-[12px] md:text-xs text-gray-400">#${issue.author}</span>
             <span class="text-[10px] md:text-xs text-gray-400">${new Date(issue.createdAt).toLocaleDateString()}</span>
             </div>
+        </div>
 
          `;
         card.addEventListener('click', () => openModal(issue));
