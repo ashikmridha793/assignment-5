@@ -2,13 +2,11 @@ const container = document.getElementById('container')
 const issueCount = document.getElementById('issue-count')
 
 
-// Tabs
-
 const allTab = document.getElementById('all-issues')
 const openTab = document.getElementById('open-issues')
 const closedTab = document.getElementById('closed-issues')
 
-// priority color helper
+
 const getPriorityColor = (priority) => {
     if (priority === 'high') return 'badge-error';
     if (priority === 'medium') return 'badge-warning';
@@ -16,7 +14,7 @@ const getPriorityColor = (priority) => {
     return 'badge-neutral';
 }
 
-// label color helper
+
 const getLabelColor = (label) => {
     label = label.toLowerCase();
     if (label === 'bug') return 'badge-error';
@@ -27,7 +25,7 @@ const getLabelColor = (label) => {
     return 'badge-info';
 }
 
-// modal 
+
 const modalTitle = document.getElementById('modal-title')
 const modalDescription = document.getElementById('modal-description')
 const modalStatus = document.getElementById('modal-status')
@@ -38,7 +36,7 @@ const modalCreated = document.getElementById('modal-created')
 
 let allIssues = [];
 
-// load issues from local storage
+
 const loadData = () => {
     container.innerHTML = `
     <div class="col-span-full flex justify-center ">
@@ -58,7 +56,7 @@ const loadData = () => {
         })
 }
 
-// render issues in grid
+
 
 const renderIssues = (issues) => {
     container.innerHTML = '';
@@ -121,36 +119,36 @@ const renderIssues = (issues) => {
     });
 }
 
-// open modal
+
 
 const openModal = (issue) => {
     modalTitle.textContent = issue.title;
     modalDescription.textContent = issue.description;
-    // status badge
+
     const statusBadge = document.getElementById('modal-status-badge');
     statusBadge.textContent = issue.status.charAt(0).toUpperCase() + issue.status.slice(1);
     statusBadge.className = `badge ${issue.status === 'open' ? 'badge-success' : 'badge-secondary'} text-white`;
     modalAuthor.textContent = issue.author;
 
-    // priority badge
+
     modalPriority.textContent = issue.priority.toUpperCase()
     modalPriority.className = `badge ${getPriorityColor(issue.priority)} text-white font-bold h-8 px-4`;
-    // label badge
+
     modalLabel.textContent = issue.labels || "BUG";
 
-    // Date formating
+
     modalCreated.textContent = new Date(issue.createdAt).toLocaleDateString();
 
-    // Assignee 
+
     document.getElementById('modal-assignee').textContent = issue.author;
     document.getElementById('issue-modal').checked = true;
 }
-// tab filters
+
 allTab.addEventListener('click', () => renderIssues(allIssues));
 openTab.addEventListener('click', () => renderIssues(allIssues.filter(i => i.status === 'open')));
 closedTab.addEventListener('click', () => renderIssues(allIssues.filter(i => i.status === 'closed')));
 
-// search functionality
+
 document.getElementById('search-input').addEventListener('input', (e) => {
     const query = document.getElementById('search-input').value.trim();
     if (!query) return loadData();
@@ -162,5 +160,5 @@ document.getElementById('search-input').addEventListener('input', (e) => {
 
 })
 
-// initial load
+
 document.addEventListener('DOMContentLoaded', loadData);
