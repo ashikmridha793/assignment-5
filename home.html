@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment-5</title>
+    <title>Assignment-5 Home page</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -19,25 +19,67 @@
 
 <body>
     <section>
-        <div class="navbar bg-base-100 shadow-sm">
+        <div class="navbar bg-base-100 shadow-sm sticky top-0 z-10">
             <div class="flex-1 flex items-center gap-2">
                 <img class="w-10" src="./assets/github-logo.png" alt="">
                 <h2 class="font-bold text-xl ">GitHub Issues Tracker</h2>
             </div>
             <div class="flex gap-2 items-center">
-                <input type="text" placeholder="Search" class="input input-bordered w-24 hidden md:block md:w-auto" />
+                <input id="search-input" type="text" placeholder="Search"
+                    class="input input-bordered w-24 hidden md:block md:w-auto" />
                 <span class="md:hidden mr-5"><i class="fa-solid fa-magnifying-glass "></i></span>
                 <button class="btn btn-active btn-primary hidden md:inline-flex"> + New Issue</button>
             </div>
         </div>
     </section>
-    <section class="w-9/12 mx-auto mt-10">
-        <div>
-            <button class="btn btn-outline btn-active btn-primary b">All</button>
-            <button class="btn btn-outline btn-active btn-primary b">Open</button>
-            <button class="btn btn-outline btn-active btn-primary b">Closed</button>
+    <main>
+
+        <section class="w-9/12 mx-auto mt-10">
+            <div class="gap-4 flex shadow-sm rounded-md mx-auto">
+                <button id="all-issues" class="btn btn-outline btn-primary m-3 px-9">All</button>
+                <button id="open-issues" class="btn btn-outline btn-primary m-3 px-7">Open</button>
+                <button id="closed-issues" class="btn btn-outline btn-primary m-3 px-7">Closed</button>
+            </div>
+
+            <div class="flex items-center my-5 shadow-sm p-3 rounded-md space-x-3">
+                <div class="bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center font-bold">
+                    <img src="./assets/Aperture.png" alt="">
+                </div>
+                <div>
+                    <h2 class="font-bold text-xl ml-3"><span id="issue-count">0</span> Issues</h2>
+                    <p class="text-[#646464] text-sm">Track and manage your project issues</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="container"
+            class="w-9/12 mx-auto bg-gray-100 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 min-h-[400px]">
+
+        </section>
+
+    </main>
+
+    <input type="checkbox" id="issue-modal" class="modal-toggle" />
+    <div class="modal">
+        <div class="modal-box">
+            <h3 id="modal-title" class="font-bold text-lg"></h3>
+            <p id="modal-description"></p>
+
+            <p> <strong>Status:</strong> <span id="modal-status"></span> </p>
+            <p> <strong>Author:</strong> <span id="modal-author"></span> </p>
+            <p> <strong>Priority:</strong> <span id="modal-priority"></span> </p>
+            <p> <strong>Label:</strong> <span id="modal-label"></span> </p>
+            <p> <strong>Created:</strong> <span id="modal-created"></span> </p>
+
+                <div class="modal-action">
+                    <label for="issue-modal" class="btn">Close</label>
+                </div>
+            </div>
         </div>
-    </section>
+
+
+
+    <script src="./script/home.js"></script>
 </body>
 
 </html>
