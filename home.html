@@ -18,8 +18,8 @@
 </head>
 
 <body>
-    <section>
-        <div class="navbar bg-base-100 shadow-sm sticky top-0 z-10">
+    <section class="sticky top-0 z-50">
+        <div class="navbar bg-base-100 shadow-sm ">
             <div class="flex-1 flex items-center gap-2">
                 <img class="w-10" src="./assets/github-logo.png" alt="">
                 <h2 class="font-bold text-xl ">GitHub Issues Tracker</h2>
@@ -35,10 +35,13 @@
     <main>
 
         <section class="w-10/12 md:w-10/12 lg:w-9/12  mx-auto mt-10">
-            <div class="gap-4 flex flex-wrap shadow-sm rounded-md mx-auto">
-                <button id="all-issues" class="btn btn-outline btn-primary m-2 px-9">All</button>
-                <button id="open-issues" class="btn btn-outline btn-primary m-2 px-7">Open</button>
-                <button id="closed-issues" class="btn btn-outline btn-primary m-2 px-7">Closed</button>
+            <div class="gap-4 flex flex-wrap justify-center border border-gray-200 rounded-lg overflow-hidden bg-white w-full max-w-xs md:max-w-md mx-auto mb-8">
+
+                <button id="all-issues" class="flex-1 px-4 py-2 text-xs md:text-sm font-medium border-r border bg-gray-200 focus:bg-indigo-600 focus:text-white transition-colors">All</button>
+
+                <button id="open-issues" class="flex-1 px-4 py-2 text-xs md:text-sm font-medium border-r border bg-gray-200 focus:bg-indigo-600 focus:text-white transition-colors">Open</button>
+
+                <button id="closed-issues" class="flex-1 px-4 py-2 text-xs md:text-sm font-medium border bg-gray-200 focus:bg-indigo-600 focus:text-white transition-colors">Closed</button>
             </div>
 
             <div class=" md:flex items-center justify-between w-100% my-5 shadow-sm p-3 rounded-md space-x-3">
@@ -60,26 +63,43 @@
         </section>
 
         <section id="container"
-            class="w-10/12 md:w-10/12 lg:w-9/12 mx-auto bg-gray-100 p-5 md:p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 min-h-[400px]">
-
+            class="w-10/12 md:w-10/12 lg:w-9/12 mx-auto bg-gray-50 p-4 md:p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 min-h-[400px]">
         </section>
 
     </main>
 
     <input type="checkbox" id="issue-modal" class="modal-toggle" />
     <div class="modal">
-        <div class="modal-box">
-            <h3 id="modal-title" class="font-bold text-lg"></h3>
-            <p id="modal-description"></p>
+        <div class="modal-box max-w-2xl p-0 overflow-hidden ">
+            <div class="p-6 border-b border-gray-100">
+                <h3 id="modal-title" class="font-bold text-lg"></h3>
+                <div class="flex items-center gap-2 mb-4">
+                    <span id="modal-status-badge" class="badge badge-success text-white">Opened</span>
+                    <span class="text-gray-400 text-sm"> . Opened by <span id="modal-author" class="font-medium text-gray-700"></span> . <span id="modal-created"></span> </span>
+                </div>
 
-            <p> <strong>Status:</strong> <span id="modal-status"></span> </p>
-            <p> <strong>Author:</strong> <span id="modal-author"></span> </p>
-            <p> <strong>Priority:</strong> <span id="modal-priority"></span> </p>
-            <p> <strong>Label:</strong> <span id="modal-label"></span> </p>
-            <p> <strong>Created:</strong> <span id="modal-created"></span> </p>
+                <div class="flex gap-2 mb-4">
+                    <span id="modal-label" class="badge badge-outline badge-error uppercase text-[10px] font-bold"></span>
+                    <span class="badge badge-outline badge-warning uppercase text-[10px] font-bold">HELP WANTED</span>
+                </div>
 
-            <div class="modal-action">
-                <label for="issue-modal" class="btn">Close</label>
+                <p id="modal-description" class="text-gray-600 leading-relaxed mb-8"></p>
+            </div>
+            
+            <div class="p-6 bg-gray-50/50">
+                <div class="flex flex-wrap justify-around gap-10">
+                    <div>
+                        <p class="text-gray-400 text-sm mb-1">Assignee:</p>
+                        <p id="modal-assignee" class="font-bold text-gray-800 text-lg"></p>
+                    </div>
+                    <div>
+                        <p class="text-gray-400 text-sm mb-1">Priority::</p>
+                        <span id="modal-priority" class="font-bold text-white badge badge-error h-8 px-4"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-action p-4 bg-white flex justify-end">
+                <label for="issue-modal" class="btn btn-primary border-none px-8">Close</label>
             </div>
         </div>
     </div>
