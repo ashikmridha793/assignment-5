@@ -34,14 +34,15 @@
     </section>
     <main>
 
-        <section class="w-9/12 mx-auto mt-10">
-            <div class="gap-4 flex shadow-sm rounded-md mx-auto">
-                <button id="all-issues" class="btn btn-outline btn-primary m-3 px-9">All</button>
-                <button id="open-issues" class="btn btn-outline btn-primary m-3 px-7">Open</button>
-                <button id="closed-issues" class="btn btn-outline btn-primary m-3 px-7">Closed</button>
+        <section class="w-10/12 md:w-10/12 lg:w-9/12  mx-auto mt-10">
+            <div class="gap-4 flex flex-wrap shadow-sm rounded-md mx-auto">
+                <button id="all-issues" class="btn btn-outline btn-primary m-2 px-9">All</button>
+                <button id="open-issues" class="btn btn-outline btn-primary m-2 px-7">Open</button>
+                <button id="closed-issues" class="btn btn-outline btn-primary m-2 px-7">Closed</button>
             </div>
 
-            <div class="flex items-center my-5 shadow-sm p-3 rounded-md space-x-3">
+            <div class=" md:flex items-center justify-between w-100% my-5 shadow-sm p-3 rounded-md space-x-3">
+                <div class="flex items-center gap-2">
                 <div class="bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center font-bold">
                     <img src="./assets/Aperture.png" alt="">
                 </div>
@@ -49,11 +50,17 @@
                     <h2 class="font-bold text-xl ml-3"><span id="issue-count">0</span> Issues</h2>
                     <p class="text-[#646464] text-sm">Track and manage your project issues</p>
                 </div>
+                </div>
+
+                <div class="flex items-center gap-4 mt-5 md:mt-0">
+                    <p class="font-semibold text-lg"><i class="fa-solid fa-circle text-green-500"></i> Open</p>
+                    <p class="font-semibold text-lg"><i class="fa-solid fa-circle text-purple-500"></i> Closed</p>
+                </div>
             </div>
         </section>
 
         <section id="container"
-            class="w-9/12 mx-auto bg-gray-100 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 min-h-[400px]">
+            class="w-10/12 md:w-10/12 lg:w-9/12 mx-auto bg-gray-100 p-5 md:p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 min-h-[400px]">
 
         </section>
 
